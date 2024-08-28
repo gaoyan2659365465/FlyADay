@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://c33oxtk1f4t22"]
+
+[ext_resource type="Script" path="res://塔防/经验控件/经验控件.gd" id="1_3vjlg"]
+[ext_resource type="LabelSettings" uid="uid://bksf1wryv2rcj" path="res://resource/label_set_25.tres" id="2_8phfa"]
+[ext_resource type="Texture2D" uid="uid://g7ww7jrmi85i" path="res://resource/进度条背景.png" id="3_i278m"]
+[ext_resource type="Texture2D" uid="uid://d0arqvikqukcc" path="res://resource/进度条内容.png" id="4_38i4k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_buhyc"]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="经验控件" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3vjlg")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 299.0
+offset_bottom = 54.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_buhyc")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 17.0
+offset_top = 9.0
+offset_right = 61.0
+offset_bottom = 43.0
+text = "Lv 1"
+label_settings = ExtResource("2_8phfa")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 2
+offset_left = 72.0
+offset_top = 18.0
+offset_right = 429.0
+offset_bottom = 56.0
+scale = Vector2(0.585, 0.585)
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture_under = ExtResource("3_i278m")
+texture_progress = ExtResource("4_38i4k")

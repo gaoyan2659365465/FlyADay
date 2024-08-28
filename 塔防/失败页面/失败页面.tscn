@@ -1,0 +1,181 @@
+[gd_scene load_steps=12 format=3 uid="uid://bf01b3aoikxnh"]
+
+[ext_resource type="Script" path="res://塔防/失败页面/失败页面.gd" id="1_7mwj8"]
+[ext_resource type="PackedScene" uid="uid://b2olsrhumav2c" path="res://addons/template/超级按钮/预设/纯文字.tscn" id="2_23jn8"]
+[ext_resource type="Texture2D" uid="uid://xbn0wh0rtn7j" path="res://resource/条带.png" id="2_ioaog"]
+[ext_resource type="Texture2D" uid="uid://bm74gp8xa46o" path="res://resource/物品框.png" id="3_8kbsh"]
+[ext_resource type="Script" path="res://addons/template/超级按钮/点击动画配置.gd" id="4_fmb6t"]
+[ext_resource type="Texture2D" uid="uid://bjkl1rffsuigg" path="res://塔防/resource/测试/icon_jz.png" id="5_tlgnu"]
+[ext_resource type="Texture2D" uid="uid://ccembh5w7g5lk" path="res://塔防/失败页面/resource/失败.png" id="6_unqyo"]
+[ext_resource type="Texture2D" uid="uid://p1f0kqkec38g" path="res://塔防/失败页面/resource/骷髅.png" id="7_yn0ut"]
+
+[sub_resource type="Resource" id="Resource_gqj1t"]
+resource_local_to_scene = true
+script = ExtResource("4_fmb6t")
+
+[sub_resource type="LabelSettings" id="LabelSettings_7wall"]
+font_size = 25
+font_color = Color(0.973056, 1, 0, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7xjx7"]
+font_size = 25
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[node name="失败页面" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7mwj8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="条带" type="TextureRect" parent="."]
+self_modulate = Color(0.482897, 1, 0.962662, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -329.0
+offset_top = -254.0
+offset_right = 329.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ioaog")
+
+[node name="Button确认" parent="." instance=ExtResource("2_23jn8")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -71.5
+offset_top = -200.0
+offset_right = 71.5
+offset_bottom = -111.0
+grow_horizontal = 2
+grow_vertical = 0
+"点击效果" = SubResource("Resource_gqj1t")
+
+[node name="NinePatchRect" parent="Button确认" index="0"]
+modulate = Color(0.236411, 0.910249, 1, 1)
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" parent="Button确认" index="1"]
+metadata/_edit_lock_ = true
+
+[node name="Label" parent="Button确认/MarginContainer" index="0"]
+text = "确认"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -88.0
+offset_right = 125.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "前往背包提供道具等级"
+label_settings = SubResource("LabelSettings_7wall")
+horizontal_alignment = 1
+
+[node name="物品框" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_8kbsh")
+
+[node name="金币图标" type="TextureRect" parent="物品框"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 93.0
+offset_bottom = 93.0
+texture = ExtResource("5_tlgnu")
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="物品框"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "x15"
+label_settings = SubResource("LabelSettings_7xjx7")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -466.0
+offset_right = 125.0
+offset_bottom = -432.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "最高进度：第一波"
+label_settings = SubResource("LabelSettings_7wall")
+horizontal_alignment = 1
+
+[node name="失败" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -132.0
+offset_top = 38.0
+offset_right = 132.0
+offset_bottom = 178.0
+grow_horizontal = 2
+texture = ExtResource("6_unqyo")
+
+[node name="骷髅" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 723.0
+offset_top = 89.0
+offset_right = 823.0
+offset_bottom = 189.0
+rotation = 0.237807
+texture = ExtResource("7_yn0ut")
+
+[connection signal="点击动画结束" from="Button确认" to="." method="_on_button确认_点击动画结束"]
+
+[editable path="Button确认"]

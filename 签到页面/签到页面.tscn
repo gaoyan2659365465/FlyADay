@@ -1,0 +1,272 @@
+[gd_scene load_steps=20 format=3 uid="uid://cjwvdtywm5rmb"]
+
+[ext_resource type="Script" path="res://签到页面/签到页面.gd" id="1_bropw"]
+[ext_resource type="PackedScene" uid="uid://dnil13w6ruvmh" path="res://弹窗/弹窗.tscn" id="2_uq4fc"]
+[ext_resource type="PackedScene" uid="uid://xg5ebbs5evpl" path="res://签到页面/签到子项.tscn" id="3_htj8e"]
+[ext_resource type="Script" path="res://addons/template/超级按钮/点击动画配置.gd" id="5_au1jg"]
+[ext_resource type="PackedScene" uid="uid://bd7cjxknp5l6e" path="res://addons/template/超级按钮/预设/左右图文.tscn" id="8_bd7hr"]
+[ext_resource type="PackedScene" uid="uid://b2olsrhumav2c" path="res://addons/template/超级按钮/预设/纯文字.tscn" id="8_scj58"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cl0i4"]
+bg_color = Color(0.223722, 0.247692, 0.292969, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_onyun"]
+resource_local_to_scene = true
+bg_color = Color(0.158097, 0.175036, 0.207031, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vulg"]
+resource_local_to_scene = true
+bg_color = Color(0.158097, 0.175036, 0.207031, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbjr2"]
+resource_local_to_scene = true
+bg_color = Color(0.158097, 0.175036, 0.207031, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4vpqk"]
+resource_local_to_scene = true
+bg_color = Color(0.158097, 0.175036, 0.207031, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x841t"]
+resource_local_to_scene = true
+bg_color = Color(0.158097, 0.175036, 0.207031, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psg41"]
+resource_local_to_scene = true
+bg_color = Color(0.158097, 0.175036, 0.207031, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_703er"]
+resource_local_to_scene = true
+bg_color = Color(0.158097, 0.175036, 0.207031, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rr40s"]
+resource_local_to_scene = true
+bg_color = Color(0.158097, 0.175036, 0.207031, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f7ttr"]
+resource_local_to_scene = true
+bg_color = Color(0.158097, 0.175036, 0.207031, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ec6n"]
+resource_local_to_scene = true
+bg_color = Color(0.158097, 0.175036, 0.207031, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="Resource" id="Resource_tl8et"]
+resource_local_to_scene = true
+script = ExtResource("5_au1jg")
+
+[sub_resource type="Resource" id="Resource_tp8px"]
+resource_local_to_scene = true
+script = ExtResource("5_au1jg")
+
+[node name="签到页面" type="Control"]
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bropw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.384314)
+
+[node name="弹窗" parent="." instance=ExtResource("2_uq4fc")]
+layout_mode = 1
+offset_left = 398.0
+offset_top = 126.0
+offset_right = -365.0
+offset_bottom = -103.0
+mouse_filter = 1
+
+[node name="NinePatchRect" parent="弹窗" index="0"]
+offset_left = -224.0
+offset_top = -54.0
+offset_right = 573.0
+offset_bottom = 486.0
+
+[node name="标题板" parent="弹窗" index="1"]
+offset_top = -78.0
+offset_bottom = -5.0
+
+[node name="Label" parent="弹窗/标题板" index="0"]
+text = "每日签到"
+metadata/_edit_lock_ = true
+
+[node name="Button关闭" parent="弹窗" index="2"]
+offset_left = 535.0
+offset_top = -64.0
+offset_right = 585.0
+offset_bottom = -14.0
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 203.0
+offset_top = 134.0
+offset_right = 945.0
+offset_bottom = 484.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cl0i4")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -178.0
+offset_right = 350.0
+offset_bottom = 207.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 25
+columns = 5
+metadata/_edit_lock_ = true
+
+[node name="签到子项" parent="GridContainer" instance=ExtResource("3_htj8e")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_onyun")
+
+[node name="签到子项2" parent="GridContainer" instance=ExtResource("3_htj8e")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1vulg")
+
+[node name="签到子项3" parent="GridContainer" instance=ExtResource("3_htj8e")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fbjr2")
+
+[node name="签到子项4" parent="GridContainer" instance=ExtResource("3_htj8e")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4vpqk")
+
+[node name="签到子项5" parent="GridContainer" instance=ExtResource("3_htj8e")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x841t")
+
+[node name="签到子项6" parent="GridContainer" instance=ExtResource("3_htj8e")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_psg41")
+
+[node name="签到子项7" parent="GridContainer" instance=ExtResource("3_htj8e")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_703er")
+
+[node name="签到子项8" parent="GridContainer" instance=ExtResource("3_htj8e")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rr40s")
+
+[node name="签到子项9" parent="GridContainer" instance=ExtResource("3_htj8e")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_f7ttr")
+
+[node name="签到子项10" parent="GridContainer" instance=ExtResource("3_htj8e")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ec6n")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -102.5
+offset_top = -131.0
+offset_right = 102.5
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 41
+text = "今日已领取"
+
+[node name="Button领取奖励" parent="." instance=ExtResource("8_scj58")]
+custom_minimum_size = Vector2(140, 76)
+layout_mode = 0
+offset_left = 395.0
+offset_top = 508.0
+offset_right = 535.0
+offset_bottom = 584.0
+"点击效果" = SubResource("Resource_tl8et")
+
+[node name="NinePatchRect" parent="Button领取奖励" index="0"]
+modulate = Color(0.0705882, 0.65098, 0.905882, 1)
+
+[node name="Label" parent="Button领取奖励/MarginContainer" index="0"]
+text = "领取奖励"
+
+[node name="Button双倍奖励" parent="." instance=ExtResource("8_bd7hr")]
+custom_minimum_size = Vector2(174, 72)
+layout_mode = 0
+offset_left = 608.0
+offset_top = 513.0
+offset_right = 782.0
+offset_bottom = 585.0
+"点击效果" = SubResource("Resource_tp8px")
+
+[node name="NinePatchRect" parent="Button双倍奖励" index="0"]
+modulate = Color(0.0745098, 0.905882, 0.192157, 1)
+
+[node name="Label" parent="Button双倍奖励/MarginContainer/HBoxContainer" index="1"]
+text = "双倍奖励"
+
+[connection signal="关闭弹窗" from="弹窗" to="." method="_on_弹窗_关闭弹窗"]
+[connection signal="点击动画结束" from="Button领取奖励" to="." method="_on_button领取奖励_点击动画结束"]
+[connection signal="点击动画结束" from="Button双倍奖励" to="." method="_on_button双倍奖励_点击动画结束"]
+
+[editable path="弹窗"]
+[editable path="Button领取奖励"]
+[editable path="Button双倍奖励"]

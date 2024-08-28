@@ -1,0 +1,134 @@
+[gd_scene load_steps=14 format=3 uid="uid://cuniysv42bxr4"]
+
+[ext_resource type="Script" path="res://塔防/自定义背包/自定义背包.gd" id="1_pga1d"]
+[ext_resource type="PackedScene" uid="uid://b576670a4q1s0" path="res://塔防/自定义背包/背包格子组.tscn" id="2_fj2ex"]
+[ext_resource type="Texture2D" uid="uid://dc7oe53shts1o" path="res://resource/蓝色按钮.png" id="5_fe4bq"]
+[ext_resource type="Script" path="res://拖拽滚动框/reorderable_container.gd" id="6_5t73n"]
+[ext_resource type="Script" path="res://超级按钮/超级按钮.gd" id="6_k75y7"]
+[ext_resource type="Script" path="res://超级按钮/点击动画配置.gd" id="7_8ij2t"]
+[ext_resource type="Script" path="res://塔防/自定义背包/物品生成/物品生成器.gd" id="7_af3qc"]
+[ext_resource type="Script" path="res://超级按钮/按钮内容配置_纯文字.gd" id="8_ci4td"]
+[ext_resource type="LabelSettings" uid="uid://bksf1wryv2rcj" path="res://resource/label_set_25.tres" id="9_hv4qb"]
+[ext_resource type="PackedScene" uid="uid://hylw8g0q5dn4" path="res://塔防/自定义背包/拖拽物/拖拽格子组.tscn" id="10_4wsal"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u34wp"]
+bg_color = Color(0.469579, 0.0132695, 0.765625, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Resource" id="Resource_hiidu"]
+script = ExtResource("7_8ij2t")
+
+[sub_resource type="Resource" id="Resource_tryy6"]
+script = ExtResource("8_ci4td")
+"按钮文字" = "开始"
+"文字配置" = ExtResource("9_hv4qb")
+margin_left = 0
+margin_top = 0
+margin_right = 0
+margin_bottom = 10
+
+[node name="自定义背包" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pga1d")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -1005.0
+offset_top = -718.0
+offset_right = 1396.0
+offset_bottom = 1177.0
+color = Color(0, 0, 0, 1)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+offset_right = 308.0
+offset_bottom = 429.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_u34wp")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 5
+
+[node name="背包格子组" parent="." instance=ExtResource("2_fj2ex")]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -340.0
+offset_bottom = 10.0
+
+[node name="Button2" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 447.0
+offset_top = 29.0
+offset_right = 540.0
+offset_bottom = 69.0
+text = "确定"
+
+[node name="ReorderableContainer" type="Container" parent="."]
+process_mode = 1
+custom_minimum_size = Vector2(276, 0)
+layout_mode = 0
+offset_left = 5.0
+offset_top = 312.0
+offset_right = 336.0
+offset_bottom = 427.0
+script = ExtResource("6_5t73n")
+hold_duration = 0.1
+
+[node name="物品生成器" type="Node" parent="." node_paths=PackedStringArray("物品栏", "背包")]
+script = ExtResource("7_af3qc")
+"物品栏" = NodePath("../ReorderableContainer")
+"背包" = NodePath("..")
+
+[node name="Button开始" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 475.0
+offset_right = 215.0
+offset_bottom = 536.0
+texture_normal = ExtResource("5_fe4bq")
+script = ExtResource("6_k75y7")
+"点击效果" = SubResource("Resource_hiidu")
+"内容配置" = SubResource("Resource_tryy6")
+
+[node name="拖拽格子组" parent="." instance=ExtResource("10_4wsal")]
+offset_left = 436.0
+offset_top = 300.0
+offset_right = 436.0
+offset_bottom = 300.0
+
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="sort_children" from="ReorderableContainer" to="ReorderableContainer" method="_on_sort_children"]
+[connection signal="点击动画结束" from="Button开始" to="." method="_on_button开始_点击动画结束"]
+[connection signal="拖拽完毕" from="拖拽格子组" to="." method="_on_拖拽格子组_拖拽完毕"]
+[connection signal="拖拽开始" from="拖拽格子组" to="." method="_on_拖拽格子组_拖拽开始"]
+[connection signal="正在拖拽" from="拖拽格子组" to="." method="_on_拖拽格子组_正在拖拽"]

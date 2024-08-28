@@ -1,0 +1,157 @@
+[gd_scene load_steps=16 format=3 uid="uid://dmg6xcwhwsvkp"]
+
+[ext_resource type="Script" path="res://塔防/复活页面/复活页面.gd" id="1_66b3v"]
+[ext_resource type="PackedScene" uid="uid://bd7cjxknp5l6e" path="res://addons/template/超级按钮/预设/左右图文.tscn" id="2_panqm"]
+[ext_resource type="Texture2D" uid="uid://xbn0wh0rtn7j" path="res://resource/条带.png" id="3_273j2"]
+[ext_resource type="Texture2D" uid="uid://besouri8k240j" path="res://塔防/复活页面/resource/关闭按钮.png" id="4_5ur8o"]
+[ext_resource type="Script" path="res://addons/template/超级按钮/超级按钮.gd" id="5_3xbc7"]
+[ext_resource type="Script" path="res://addons/template/超级按钮/点击动画配置.gd" id="6_osbak"]
+[ext_resource type="Texture2D" uid="uid://bscvj7gtoasja" path="res://塔防/复活页面/resource/光效.png" id="7_efjg2"]
+[ext_resource type="Texture2D" uid="uid://b2wd8jxkwyoo0" path="res://塔防/复活页面/resource/星星.png" id="8_hddor"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x2ojr"]
+font_size = 25
+font_color = Color(0.973056, 1, 0, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n22ok"]
+font_size = 71
+font_color = Color(1, 0.912696, 0, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Curve" id="Curve_3hbg1"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.496324, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_7or37"]
+curve = SubResource("Curve_3hbg1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e648d"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 66.7
+spread = 180.0
+initial_velocity_min = 217.53
+initial_velocity_max = 217.53
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.2
+color = Color(1, 0.855549, 0.168712, 1)
+alpha_curve = SubResource("CurveTexture_7or37")
+
+[sub_resource type="Resource" id="Resource_0g65r"]
+resource_local_to_scene = true
+script = ExtResource("6_osbak")
+
+[sub_resource type="Resource" id="Resource_ycruw"]
+script = ExtResource("6_osbak")
+
+[node name="复活页面" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_66b3v")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -272.5
+offset_top = -138.0
+offset_right = 272.5
+offset_bottom = -67.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "注意：每章仅一次复活机会！再次失败则会返回大厅！
+（复活后可获得15币）"
+label_settings = SubResource("LabelSettings_x2ojr")
+horizontal_alignment = 1
+
+[node name="光效" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 443.0
+offset_top = 165.0
+offset_right = 708.0
+offset_bottom = 430.0
+texture = ExtResource("7_efjg2")
+
+[node name="条带" type="TextureRect" parent="."]
+self_modulate = Color(0.899951, 0.935536, 1, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -187.0
+offset_top = 102.0
+offset_right = 186.0
+offset_bottom = 220.0
+grow_horizontal = 2
+texture = ExtResource("3_273j2")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="条带"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -56.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "失败"
+label_settings = SubResource("LabelSettings_n22ok")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(582, 298)
+process_material = SubResource("ParticleProcessMaterial_e648d")
+texture = ExtResource("8_hddor")
+
+[node name="Button看广告复活" parent="." instance=ExtResource("2_panqm")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -89.0
+offset_top = -250.0
+offset_right = 89.0
+offset_bottom = -167.0
+grow_horizontal = 2
+grow_vertical = 0
+"点击效果" = SubResource("Resource_0g65r")
+
+[node name="Button关闭" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 799.0
+offset_top = 173.0
+offset_right = 852.0
+offset_bottom = 226.0
+texture_normal = ExtResource("4_5ur8o")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_3xbc7")
+"点击效果" = SubResource("Resource_ycruw")
+
+[connection signal="点击动画结束" from="Button看广告复活" to="." method="_on_button看广告复活_点击动画结束"]
+[connection signal="点击动画结束" from="Button关闭" to="." method="_on_button关闭_点击动画结束"]

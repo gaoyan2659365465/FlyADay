@@ -1,0 +1,213 @@
+[gd_scene load_steps=16 format=3 uid="uid://hc76muer1vao"]
+
+[ext_resource type="Script" path="res://商店页面/商品页面.gd" id="1_kg4w6"]
+[ext_resource type="LabelSettings" uid="uid://bksf1wryv2rcj" path="res://resource/label_set_25.tres" id="1_wggvp"]
+[ext_resource type="Texture2D" uid="uid://bjkl1rffsuigg" path="res://塔防/resource/测试/icon_jz.png" id="2_n03od"]
+[ext_resource type="Texture2D" uid="uid://cgbfis5whidnf" path="res://addons/template/超级按钮/resource/红色感叹号.png" id="3_vkfrk"]
+[ext_resource type="PackedScene" uid="uid://b2olsrhumav2c" path="res://addons/template/超级按钮/预设/纯文字.tscn" id="3_vstfw"]
+[ext_resource type="Script" path="res://addons/template/超级按钮/点击动画配置.gd" id="5_sj0n8"]
+[ext_resource type="PackedScene" uid="uid://bd7cjxknp5l6e" path="res://addons/template/超级按钮/预设/左右图文.tscn" id="6_1scsb"]
+[ext_resource type="Texture2D" uid="uid://drungyx1tsoev" path="res://塔防/resource/测试/icon_bcs05.png" id="7_l1dch"]
+[ext_resource type="Texture2D" uid="uid://hw3hspnt3quy" path="res://商店页面/resource/打折.png" id="9_snjtl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ivq5"]
+resource_local_to_scene = true
+bg_color = Color(0, 0.517483, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_umwoq"]
+resource_local_to_scene = true
+bg_color = Color(0, 0.417524, 0.796875, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+
+[sub_resource type="Resource" id="Resource_hleno"]
+resource_local_to_scene = true
+script = ExtResource("5_sj0n8")
+
+[sub_resource type="Resource" id="Resource_sy433"]
+resource_local_to_scene = true
+script = ExtResource("5_sj0n8")
+
+[sub_resource type="Resource" id="Resource_d2pgy"]
+resource_local_to_scene = true
+script = ExtResource("5_sj0n8")
+
+[sub_resource type="LabelSettings" id="LabelSettings_8nfnp"]
+font_size = 18
+font_color = Color(1, 0.874526, 0, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="商品页面" type="Panel"]
+custom_minimum_size = Vector2(139, 179)
+offset_right = 139.0
+offset_bottom = 179.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6ivq5")
+script = ExtResource("1_kg4w6")
+
+[node name="标题栏" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 35.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_umwoq")
+
+[node name="Label" type="Label" parent="标题栏"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "一点金币"
+label_settings = ExtResource("1_wggvp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="红色感叹号" type="TextureRect" parent="标题栏"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -23.0
+offset_top = 7.0
+offset_right = -2.0
+offset_bottom = 28.0
+grow_horizontal = 0
+texture = ExtResource("3_vkfrk")
+expand_mode = 1
+
+[node name="商品图片" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = -37.5
+offset_right = 29.0
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_n03od")
+expand_mode = 1
+
+[node name="数量" type="Label" parent="."]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 94.0
+offset_right = 102.0
+offset_bottom = 128.0
+text = "X500"
+label_settings = ExtResource("1_wggvp")
+horizontal_alignment = 1
+
+[node name="Button免费" parent="." instance=ExtResource("3_vstfw")]
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 0
+offset_left = 4.0
+offset_top = 128.0
+offset_right = 135.0
+offset_bottom = 182.0
+"点击效果" = SubResource("Resource_hleno")
+
+[node name="NinePatchRect" parent="Button免费" index="0"]
+modulate = Color(0.379853, 0.802383, 1, 1)
+
+[node name="MarginContainer" parent="Button免费" index="1"]
+theme_override_constants/margin_bottom = 12
+
+[node name="Label" parent="Button免费/MarginContainer" index="0"]
+text = "免费"
+
+[node name="Button金币" parent="." instance=ExtResource("6_1scsb")]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 128.0
+offset_right = 135.0
+offset_bottom = 182.0
+"点击效果" = SubResource("Resource_sy433")
+
+[node name="NinePatchRect" parent="Button金币" index="0"]
+modulate = Color(0.380392, 0.803922, 1, 1)
+
+[node name="MarginContainer" parent="Button金币" index="1"]
+theme_override_constants/margin_bottom = 12
+
+[node name="TextureRect" parent="Button金币/MarginContainer/HBoxContainer" index="0"]
+custom_minimum_size = Vector2(35, 35)
+texture = ExtResource("2_n03od")
+
+[node name="Label" parent="Button金币/MarginContainer/HBoxContainer" index="1"]
+text = "54"
+
+[node name="Button钻石" parent="." instance=ExtResource("6_1scsb")]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 128.0
+offset_right = 135.0
+offset_bottom = 182.0
+"点击效果" = SubResource("Resource_d2pgy")
+
+[node name="NinePatchRect" parent="Button钻石" index="0"]
+modulate = Color(0.380392, 0.803922, 1, 1)
+
+[node name="MarginContainer" parent="Button钻石" index="1"]
+theme_override_constants/margin_bottom = 12
+
+[node name="TextureRect" parent="Button钻石/MarginContainer/HBoxContainer" index="0"]
+custom_minimum_size = Vector2(35, 35)
+texture = ExtResource("7_l1dch")
+
+[node name="Label" parent="Button钻石/MarginContainer/HBoxContainer" index="1"]
+text = "54"
+
+[node name="打折" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 86.0
+offset_right = 139.0
+offset_bottom = 51.0
+texture = ExtResource("9_snjtl")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="打折"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 31.0
+offset_top = -17.0
+offset_right = 31.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+text = "9折"
+label_settings = SubResource("LabelSettings_8nfnp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="点击动画结束" from="Button免费" to="." method="_on_button免费_点击动画结束"]
+[connection signal="点击动画结束" from="Button金币" to="." method="_on_button金币_点击动画结束"]
+[connection signal="点击动画结束" from="Button钻石" to="." method="_on_button钻石_点击动画结束"]
+
+[editable path="Button免费"]
+[editable path="Button金币"]
+[editable path="Button钻石"]

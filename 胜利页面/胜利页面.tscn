@@ -1,0 +1,222 @@
+[gd_scene load_steps=13 format=3 uid="uid://u4upolfywnkg"]
+
+[ext_resource type="Script" path="res://胜利页面/胜利页面.gd" id="1_newqy"]
+[ext_resource type="Texture2D" uid="uid://dywmteybhi6ia" path="res://胜利页面/resource/丝带.png" id="2_fxkh3"]
+[ext_resource type="Shader" path="res://胜利页面/resource/放射光.gdshader" id="2_qilsp"]
+[ext_resource type="Texture2D" uid="uid://drungyx1tsoev" path="res://塔防/resource/测试/icon_bcs05.png" id="5_1xe86"]
+[ext_resource type="Texture2D" uid="uid://bm74gp8xa46o" path="res://resource/物品框.png" id="5_u4qk5"]
+[ext_resource type="Texture2D" uid="uid://bjkl1rffsuigg" path="res://塔防/resource/测试/icon_jz.png" id="6_f8s2c"]
+[ext_resource type="Texture2D" uid="uid://brxhmghasynop" path="res://数值显示控件/resource/体力图标.png" id="7_x4ch3"]
+[ext_resource type="PackedScene" uid="uid://b2olsrhumav2c" path="res://addons/template/超级按钮/预设/纯文字.tscn" id="9_d0n8d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jsrw2"]
+shader = ExtResource("2_qilsp")
+shader_parameter/angle = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8homg"]
+shader = ExtResource("2_qilsp")
+shader_parameter/angle = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_8vmsh"]
+font_size = 76
+font_color = Color(1, 0.949362, 0.860902, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mhgj7"]
+font_size = 25
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[node name="胜利页面" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_newqy")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.384314)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_jsrw2")
+layout_mode = 0
+offset_left = 365.0
+offset_top = 121.0
+offset_right = 787.0
+offset_bottom = 543.0
+color = Color(1, 0.911963, 0.478841, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_8homg")
+layout_mode = 0
+offset_left = 434.0
+offset_top = 187.0
+offset_right = 722.0
+offset_bottom = 475.0
+color = Color(1, 0.800746, 0, 1)
+
+[node name="丝带" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -244.0
+offset_top = 62.0
+offset_right = 244.0
+offset_bottom = 319.0
+grow_horizontal = 2
+texture = ExtResource("2_fxkh3")
+
+[node name="Label" type="Label" parent="丝带"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "胜利"
+label_settings = SubResource("LabelSettings_8vmsh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="物品框2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_u4qk5")
+
+[node name="钻石图标" type="TextureRect" parent="物品框2"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 93.0
+offset_bottom = 93.0
+texture = ExtResource("5_1xe86")
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="物品框2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "x50"
+label_settings = SubResource("LabelSettings_mhgj7")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="物品框3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 75.0
+offset_top = -50.0
+offset_right = 175.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_u4qk5")
+
+[node name="钻石图标" type="TextureRect" parent="物品框3"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 93.0
+offset_bottom = 93.0
+texture = ExtResource("6_f8s2c")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Label3" type="Label" parent="物品框3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "x100"
+label_settings = SubResource("LabelSettings_mhgj7")
+horizontal_alignment = 1
+vertical_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="物品框4" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = -50.0
+offset_right = -73.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_u4qk5")
+
+[node name="钻石图标" type="TextureRect" parent="物品框4"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 10.0
+offset_right = 72.0
+offset_bottom = 90.0
+texture = ExtResource("7_x4ch3")
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="物品框4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "x5"
+label_settings = SubResource("LabelSettings_mhgj7")
+horizontal_alignment = 1
+vertical_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="Button确认" parent="." instance=ExtResource("9_d0n8d")]
+layout_mode = 0
+offset_left = 501.0
+offset_top = 498.0
+offset_right = 644.0
+offset_bottom = 587.0
+
+[node name="NinePatchRect" parent="Button确认" index="0"]
+modulate = Color(0.241796, 1, 0.0929085, 1)
+
+[node name="Label" parent="Button确认/MarginContainer" index="0"]
+text = "确认"
+
+[connection signal="点击动画结束" from="Button确认" to="." method="_on_button确认_点击动画结束"]
+
+[editable path="Button确认"]

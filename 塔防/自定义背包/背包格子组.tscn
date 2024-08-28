@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://b576670a4q1s0"]
+
+[ext_resource type="Script" path="res://塔防/自定义背包/背包格子组.gd" id="1_cydlf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_copxi"]
+bg_color = Color(0.469579, 0.0132695, 0.765625, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vuyrf"]
+resource_local_to_scene = true
+bg_color = Color(0.746415, 0.507751, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="背包格子组" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cydlf")
+
+[node name="背景" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_copxi")
+
+[node name="拖拽格子" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(54, 54)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vuyrf")

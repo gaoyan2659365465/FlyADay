@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwtw81bu7gx1v"]
+
+[ext_resource type="Texture2D" uid="uid://b8uvhycenvdf1" path="res://获得物品页面/resource/caidai.png" id="1_vctxd"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_oyu36"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 3
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_cnilb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.01154, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3e2sy"]
+curve = SubResource("Curve_cnilb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ann0x"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1024, 50, 1)
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 267.31
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 10, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_3e2sy")
+anim_offset_max = 1.0
+
+[node name="彩带特效" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_oyu36")
+position = Vector2(576, 3)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_ann0x")
+texture = ExtResource("1_vctxd")
+lifetime = 1.5
+randomness = 0.18

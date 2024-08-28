@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://v67dr8iw3kp2"]
+
+[ext_resource type="Script" path="res://塔防/飞球特效/flyball.gd" id="1_2g1a4"]
+[ext_resource type="PackedScene" uid="uid://b0kvw757fj4no" path="res://塔防/飞球特效/trail_2d.tscn" id="2_d80sf"]
+
+[sub_resource type="Gradient" id="Gradient_8k2so"]
+offsets = PackedFloat32Array(0.337748, 0.788079)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_imyrv"]
+gradient = SubResource("Gradient_8k2so")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Curve2D" id="Curve2D_ampqy"]
+resource_local_to_scene = true
+bake_interval = 2.0
+
+[node name="Flyball" type="Node2D"]
+script = ExtResource("1_2g1a4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_imyrv")
+
+[node name="Trail2D" parent="Sprite2D" instance=ExtResource("2_d80sf")]
+width = 8.0
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Path2D" type="Path2D" parent="Node"]
+curve = SubResource("Curve2D_ampqy")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Node/Path2D"]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Node/Path2D/PathFollow2D"]
+remote_path = NodePath("../../../../Sprite2D")
+update_rotation = false

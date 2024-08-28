@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://q4xpm5whkdd5"]
+
+[ext_resource type="Script" path="res://左右换图页面/左右换图页面.gd" id="1_nhpxb"]
+[ext_resource type="Texture2D" uid="uid://dlnnuxarscn7r" path="res://左右换图页面/resource/左按钮.png" id="3_4846a"]
+[ext_resource type="Texture2D" uid="uid://ehe5r7ehgh3a" path="res://icon.svg" id="4_4tlfq"]
+[ext_resource type="Script" path="res://addons/template/超级按钮/超级按钮.gd" id="9_irwu6"]
+[ext_resource type="Script" path="res://addons/template/超级按钮/点击动画配置.gd" id="10_xclko"]
+
+[sub_resource type="Resource" id="Resource_t3bpv"]
+script = ExtResource("10_xclko")
+
+[sub_resource type="Resource" id="Resource_wiur5"]
+script = ExtResource("10_xclko")
+
+[node name="左右换图页面" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_nhpxb")
+"图片数组" = Array[CompressedTexture2D]([ExtResource("4_4tlfq"), ExtResource("4_4tlfq"), ExtResource("4_4tlfq"), ExtResource("4_4tlfq"), ExtResource("4_4tlfq"), ExtResource("4_4tlfq")])
+
+[node name="遮罩层" type="Control" parent="."]
+clip_contents = true
+anchors_preset = 0
+offset_left = 156.0
+offset_top = 134.0
+offset_right = 590.0
+offset_bottom = 501.0
+
+[node name="TextureRect" type="TextureRect" parent="遮罩层"]
+layout_mode = 0
+offset_left = 38.0
+offset_right = 403.0
+offset_bottom = 351.0
+expand_mode = 1
+
+[node name="Button左" type="TextureButton" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 46.0
+offset_top = 255.0
+offset_right = 132.0
+offset_bottom = 355.0
+texture_normal = ExtResource("3_4846a")
+script = ExtResource("9_irwu6")
+"点击效果" = SubResource("Resource_t3bpv")
+
+[node name="Button右" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 629.0
+offset_top = 255.0
+offset_right = 715.0
+offset_bottom = 355.0
+texture_normal = ExtResource("3_4846a")
+flip_h = true
+script = ExtResource("9_irwu6")
+"点击效果" = SubResource("Resource_wiur5")
+
+[connection signal="点击动画结束" from="Button左" to="." method="_on_button左_点击动画结束"]
+[connection signal="点击动画结束" from="Button右" to="." method="_on_button右_点击动画结束"]

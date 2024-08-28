@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqgkxc8ydh20p"]
+
+[ext_resource type="Script" path="res://塔防/自定义背包/拖拽物/背包物品.gd" id="1_u1kdu"]
+[ext_resource type="Script" path="res://塔防/技能系统/AbilitySystem.gd" id="2_wkrxw"]
+[ext_resource type="Script" path="res://塔防/技能系统/角色属性.gd" id="3_rurk0"]
+
+[sub_resource type="Resource" id="Resource_73tex"]
+script = ExtResource("3_rurk0")
+"血量" = 100
+"最大血量" = 100
+"移动速度" = 200
+"减速效果" = 0.0
+"最终速度" = 200
+
+[node name="背包物品" type="Control"]
+custom_minimum_size = Vector2(54, 54)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 54.0
+offset_bottom = 54.0
+mouse_filter = 1
+script = ExtResource("1_u1kdu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+scale = Vector2(0.88, 0.88)
+mouse_filter = 2
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AbilitySystem" type="Node" parent="."]
+script = ExtResource("2_wkrxw")
+attribute = SubResource("Resource_73tex")
+tag = Array[String](["背包物品"])
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3ajncnp2bp4e"]
+
+[ext_resource type="Script" path="res://引导/引导场景.gd" id="1_evflp"]
+[ext_resource type="PackedScene" uid="uid://b2olsrhumav2c" path="res://addons/template/超级按钮/预设/纯文字.tscn" id="2_5dx1p"]
+
+[node name="引导场景" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_evflp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.176471)
+
+[node name="Button跳过引导" parent="." instance=ExtResource("2_5dx1p")]
+layout_mode = 0
+offset_left = 887.0
+offset_top = 118.0
+offset_right = 1030.0
+offset_bottom = 207.0
+
+[node name="NinePatchRect" parent="Button跳过引导" index="0"]
+modulate = Color(0.431746, 1, 0.336995, 1)
+
+[node name="Label" parent="Button跳过引导/MarginContainer" index="0"]
+text = "跳过引导"
+
+[editable path="Button跳过引导"]

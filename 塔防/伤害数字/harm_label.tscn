@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqpw75ccikdsa"]
+
+[ext_resource type="Script" path="res://塔防/伤害数字/harm_label.gd" id="1_5hfa2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v0x71"]
+font_size = 15
+font_color = Color(0, 0, 0, 1)
+outline_size = 10
+
+[node name="HarmLabel" type="Label"]
+offset_right = 40.0
+offset_bottom = 17.0
+text = "50"
+label_settings = SubResource("LabelSettings_v0x71")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_5hfa2")

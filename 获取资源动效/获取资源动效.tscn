@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cge00ajtiunay"]
+
+[ext_resource type="Script" path="res://获取资源动效/获取资源动效.gd" id="1_ndrmt"]
+[ext_resource type="Texture2D" uid="uid://ehe5r7ehgh3a" path="res://icon.svg" id="2_mlp3q"]
+
+[node name="获取资源动效" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_ndrmt")
+"图标" = ExtResource("2_mlp3q")

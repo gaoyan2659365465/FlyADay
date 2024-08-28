@@ -1,0 +1,258 @@
+[gd_scene load_steps=20 format=3 uid="uid://u16y1ets2xp1"]
+
+[ext_resource type="Script" path="res://商店页面/商店页面.gd" id="1_f4fxr"]
+[ext_resource type="Texture2D" uid="uid://6n7e4nlrxgpd" path="res://塔防/resource/测试/common_board_xinxi_00.png" id="2_7otq5"]
+[ext_resource type="PackedScene" uid="uid://hc76muer1vao" path="res://商店页面/商品页面.tscn" id="3_cnv5t"]
+[ext_resource type="Texture2D" uid="uid://cty43m4x700gw" path="res://塔防/resource/测试/zlc_bk_006.png" id="3_jd6ee"]
+[ext_resource type="PackedScene" uid="uid://bd7cjxknp5l6e" path="res://addons/template/超级按钮/预设/左右图文.tscn" id="5_aasou"]
+[ext_resource type="Script" path="res://addons/template/超级按钮/点击动画配置.gd" id="6_62jrn"]
+[ext_resource type="Texture2D" uid="uid://5m32yeesctfi" path="res://商店页面/zp_icon_back.png" id="7_trfl3"]
+[ext_resource type="Script" path="res://addons/template/超级按钮/超级按钮.gd" id="8_1yse0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8r0cu"]
+resource_local_to_scene = true
+bg_color = Color(0, 0.517483, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_or3eo"]
+resource_local_to_scene = true
+bg_color = Color(0, 0.517483, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8bdc0"]
+resource_local_to_scene = true
+bg_color = Color(0, 0.517483, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgohq"]
+resource_local_to_scene = true
+bg_color = Color(0, 0.517483, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ol6ik"]
+resource_local_to_scene = true
+bg_color = Color(0, 0.517483, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4amdd"]
+resource_local_to_scene = true
+bg_color = Color(0, 0.517483, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lmuou"]
+resource_local_to_scene = true
+bg_color = Color(0, 0.517483, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8dfoe"]
+resource_local_to_scene = true
+bg_color = Color(0, 0.517483, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_jovn3"]
+font_size = 40
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_fnsfn"]
+resource_local_to_scene = true
+script = ExtResource("6_62jrn")
+
+[sub_resource type="Resource" id="Resource_pa4d7"]
+script = ExtResource("6_62jrn")
+
+[node name="商店页面" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f4fxr")
+
+[node name="背景" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7otq5")
+
+[node name="ZlcBk006" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -48.0
+offset_top = 232.0
+offset_right = 238.0
+offset_bottom = 518.0
+texture = ExtResource("3_jd6ee")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -228.5
+offset_top = -187.0
+offset_right = 228.5
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="一点金币" parent="HBoxContainer" instance=ExtResource("3_cnv5t")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8r0cu")
+
+[node name="一袋金币" parent="HBoxContainer" instance=ExtResource("3_cnv5t")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_or3eo")
+
+[node name="一箱金币" parent="HBoxContainer" instance=ExtResource("3_cnv5t")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8bdc0")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 332.0
+offset_right = 974.0
+offset_bottom = 511.0
+theme_override_constants/separation = 20
+
+[node name="一点钻石" parent="HBoxContainer2" instance=ExtResource("3_cnv5t")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qgohq")
+
+[node name="随机商品1" parent="HBoxContainer2" instance=ExtResource("3_cnv5t")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ol6ik")
+
+[node name="随机商品2" parent="HBoxContainer2" instance=ExtResource("3_cnv5t")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4amdd")
+
+[node name="随机商品3" parent="HBoxContainer2" instance=ExtResource("3_cnv5t")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lmuou")
+
+[node name="随机商品4" parent="HBoxContainer2" instance=ExtResource("3_cnv5t")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8dfoe")
+
+[node name="Label" type="Label" parent="."]
+self_modulate = Color(0.968935, 1, 0.224238, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 67.0
+offset_top = 225.0
+offset_right = -1017.0
+offset_bottom = -116.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "特惠商店"
+label_settings = SubResource("LabelSettings_jovn3")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Button刷新" parent="." instance=ExtResource("5_aasou")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -82.5
+offset_top = -91.0
+offset_right = 82.5
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+"点击效果" = SubResource("Resource_fnsfn")
+
+[node name="Label" parent="Button刷新/MarginContainer/HBoxContainer" index="1"]
+text = "刷新"
+
+[node name="Button关闭" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 21.0
+offset_right = 125.0
+offset_bottom = 124.0
+texture_normal = ExtResource("7_trfl3")
+script = ExtResource("8_1yse0")
+"点击效果" = SubResource("Resource_pa4d7")
+
+[connection signal="点击动画结束" from="Button刷新" to="." method="_on_button刷新_点击动画结束"]
+[connection signal="点击动画结束" from="Button关闭" to="." method="_on_button关闭_点击动画结束"]
+
+[editable path="Button刷新"]

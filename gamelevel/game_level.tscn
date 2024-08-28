@@ -1,0 +1,219 @@
+[gd_scene load_steps=30 format=3 uid="uid://76hwc7rtbaq0"]
+
+[ext_resource type="Script" path="res://gamelevel/game_level.gd" id="1_codej"]
+[ext_resource type="Texture2D" uid="uid://6n7e4nlrxgpd" path="res://塔防/resource/测试/common_board_xinxi_00.png" id="2_40kst"]
+[ext_resource type="PackedScene" uid="uid://bfx0506qdvtrn" path="res://数值显示控件/顶部数值界面.tscn" id="3_6k4ft"]
+[ext_resource type="PackedScene" uid="uid://bk72bi2c3b0f0" path="res://设置页面/设置按钮/设置按钮.tscn" id="3_j348o"]
+[ext_resource type="PackedScene" uid="uid://xlkyej1h0w32" path="res://签到页面/签到按钮/签到按钮.tscn" id="4_1n1na"]
+[ext_resource type="Texture2D" uid="uid://ds7gtvstmo3kn" path="res://塔防/resource/测试/lt_btk_xuanze.png" id="4_exgk2"]
+[ext_resource type="Texture2D" uid="uid://okp44gfwrro2" path="res://塔防/resource/测试/zjm_icon_qiandao.png" id="5_e83s2"]
+[ext_resource type="PackedScene" uid="uid://q4xpm5whkdd5" path="res://左右换图页面/左右换图页面.tscn" id="5_vheg5"]
+[ext_resource type="Texture2D" uid="uid://c3efglml1fwbe" path="res://塔防/resource/测试/cp_icon_map01.png" id="6_w3u4p"]
+[ext_resource type="Texture2D" uid="uid://ckxrlu7wtb6o0" path="res://塔防/resource/测试/cp_icon_map04.png" id="7_ou3lc"]
+[ext_resource type="Texture2D" uid="uid://u28l0kjbk2lj" path="res://塔防/resource/测试/cp_icon_map06.png" id="8_yvhqb"]
+[ext_resource type="Texture2D" uid="uid://cgt25d46ayqhm" path="res://塔防/resource/测试/cp_icon_map08.png" id="9_5u5ot"]
+[ext_resource type="Texture2D" uid="uid://beiaifvrqx1tv" path="res://塔防/resource/测试/cp_icon_map09.png" id="10_7m0ui"]
+[ext_resource type="Script" path="res://addons/template/超级按钮/点击动画配置.gd" id="10_isw1o"]
+[ext_resource type="Texture2D" uid="uid://bsxy0lfq2aunf" path="res://塔防/resource/测试/common_btn_arrow.png" id="11_ubbns"]
+[ext_resource type="Texture2D" uid="uid://brxhmghasynop" path="res://数值显示控件/resource/体力图标.png" id="14_nm8ln"]
+[ext_resource type="PackedScene" uid="uid://b2olsrhumav2c" path="res://addons/template/超级按钮/预设/纯文字.tscn" id="15_2d5hj"]
+[ext_resource type="PackedScene" uid="uid://c1m48cr11okbq" path="res://屏幕点击特效/屏幕点击效果.tscn" id="15_5oeno"]
+[ext_resource type="Texture2D" uid="uid://b747dpe6bcnif" path="res://塔防/resource/测试/common_btn_minimum_green #113170.png" id="15_7mwhf"]
+[ext_resource type="Texture2D" uid="uid://ddfpuqpy216wg" path="res://塔防/resource/测试/common_btn_median_yellow #114269.png" id="22_vbc2s"]
+[ext_resource type="Texture2D" uid="uid://bavdi1q1tlxqw" path="res://塔防/resource/测试/mp_icon_yuanbao.png" id="23_7fohm"]
+[ext_resource type="PackedScene" uid="uid://bd7cjxknp5l6e" path="res://addons/template/超级按钮/预设/左右图文.tscn" id="23_to00h"]
+[ext_resource type="LabelSettings" uid="uid://jfcdltjkfkj4" path="res://resource/label_set_30.tres" id="24_c2uqd"]
+[ext_resource type="Script" path="res://addons/template/超级按钮/超级按钮.gd" id="24_nfjji"]
+[ext_resource type="LabelSettings" uid="uid://bksf1wryv2rcj" path="res://resource/label_set_25.tres" id="25_mfeag"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jnw7j"]
+font_size = 15
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_u15qn"]
+script = ExtResource("10_isw1o")
+
+[sub_resource type="Resource" id="Resource_od5kp"]
+script = ExtResource("10_isw1o")
+
+[sub_resource type="Resource" id="Resource_m2say"]
+script = ExtResource("10_isw1o")
+
+[node name="GameLevel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_codej")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.394837, 0.298655, 0.660156, 1)
+
+[node name="背景" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_40kst")
+
+[node name="设置按钮" parent="." instance=ExtResource("3_j348o")]
+offset_left = 46.0
+offset_top = 150.0
+offset_right = 132.0
+offset_bottom = 279.0
+scale = Vector2(0.745, 0.745)
+
+[node name="Button" parent="设置按钮" index="0"]
+texture_normal = ExtResource("4_exgk2")
+
+[node name="Label" parent="设置按钮/Button" index="0"]
+offset_left = 29.5302
+offset_top = 72.4832
+offset_right = 79.5302
+offset_bottom = 107.483
+
+[node name="顶部数值界面" parent="." instance=ExtResource("3_6k4ft")]
+z_index = 1
+layout_mode = 1
+offset_left = 647.0
+offset_top = 26.0
+offset_right = -71.0
+offset_bottom = -559.0
+
+[node name="签到按钮" parent="." instance=ExtResource("4_1n1na")]
+layout_mode = 1
+offset_left = 50.0
+offset_top = 255.0
+offset_right = -1042.0
+offset_bottom = -324.0
+
+[node name="Button" parent="签到按钮" index="0"]
+offset_right = 66.0
+offset_bottom = 70.0
+texture_normal = ExtResource("5_e83s2")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" parent="签到按钮/Button" index="0"]
+offset_left = -13.0
+offset_top = 56.0
+offset_right = 87.0
+offset_bottom = 91.0
+label_settings = SubResource("LabelSettings_jnw7j")
+horizontal_alignment = 1
+
+[node name="左右换图页面" parent="." instance=ExtResource("5_vheg5")]
+layout_mode = 1
+offset_left = 194.0
+offset_top = 25.0
+offset_right = -236.0
+offset_bottom = -70.0
+"页数" = 4
+"图片数组" = Array[CompressedTexture2D]([ExtResource("6_w3u4p"), ExtResource("7_ou3lc"), ExtResource("8_yvhqb"), ExtResource("9_5u5ot"), ExtResource("10_7m0ui")])
+
+[node name="Button左" parent="左右换图页面" index="1"]
+texture_normal = ExtResource("11_ubbns")
+
+[node name="Button右" parent="左右换图页面" index="2"]
+texture_normal = ExtResource("11_ubbns")
+
+[node name="Button扫荡" parent="." instance=ExtResource("15_2d5hj")]
+custom_minimum_size = Vector2(140, 76)
+layout_mode = 0
+offset_left = 379.0
+offset_top = 538.0
+offset_right = 519.0
+offset_bottom = 614.0
+"点击效果" = SubResource("Resource_u15qn")
+
+[node name="NinePatchRect" parent="Button扫荡" index="0"]
+modulate = Color(1, 1, 1, 1)
+texture = ExtResource("15_7mwhf")
+patch_margin_right = 22
+
+[node name="Label" parent="Button扫荡/MarginContainer" index="0"]
+text = "扫荡"
+
+[node name="屏幕点击效果" parent="." instance=ExtResource("15_5oeno")]
+layout_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Button开始" parent="." instance=ExtResource("23_to00h")]
+custom_minimum_size = Vector2(149, 102)
+layout_mode = 0
+offset_left = 598.0
+offset_top = 525.0
+offset_right = 747.0
+offset_bottom = 627.0
+"点击效果" = SubResource("Resource_od5kp")
+
+[node name="NinePatchRect" parent="Button开始" index="0"]
+texture = ExtResource("22_vbc2s")
+
+[node name="MarginContainer" parent="Button开始" index="1"]
+offset_top = 60.0
+
+[node name="TextureRect" parent="Button开始/MarginContainer/HBoxContainer" index="0"]
+custom_minimum_size = Vector2(20, 30)
+texture = ExtResource("14_nm8ln")
+
+[node name="Label" parent="Button开始/MarginContainer/HBoxContainer" index="1"]
+text = "X5"
+
+[node name="Label" type="Label" parent="Button开始"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "开始"
+label_settings = ExtResource("24_c2uqd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(944, 46)
+
+[node name="Button商店" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 356.0
+offset_right = 116.0
+offset_bottom = 428.0
+texture_normal = ExtResource("23_7fohm")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("24_nfjji")
+"点击效果" = SubResource("Resource_m2say")
+
+[node name="Label" type="Label" parent="Button商店"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 52.0
+offset_right = 62.0
+offset_bottom = 86.9998
+text = "商店"
+label_settings = ExtResource("25_mfeag")
+
+[connection signal="点击动画结束" from="Button扫荡" to="." method="_on_button扫荡_点击动画结束"]
+[connection signal="点击动画结束" from="Button开始" to="." method="_on_button开始_点击动画结束"]
+[connection signal="点击动画结束" from="Button商店" to="." method="_on_button商店_点击动画结束"]
+
+[editable path="设置按钮"]
+[editable path="签到按钮"]
+[editable path="左右换图页面"]
+[editable path="Button扫荡"]
+[editable path="Button开始"]

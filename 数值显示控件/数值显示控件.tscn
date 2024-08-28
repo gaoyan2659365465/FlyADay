@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://noii1uo1ur3g"]
+
+[ext_resource type="Script" path="res://数值显示控件/数值显示控件.gd" id="1_lho72"]
+[ext_resource type="Texture2D" uid="uid://brxhmghasynop" path="res://数值显示控件/resource/体力图标.png" id="2_l0nv8"]
+
+[node name="数值显示控件" type="Control"]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_lho72")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 121.0
+offset_bottom = 36.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+text = "30/30"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -10.0
+offset_right = 31.0
+offset_bottom = 48.0
+texture = ExtResource("2_l0nv8")
+expand_mode = 1

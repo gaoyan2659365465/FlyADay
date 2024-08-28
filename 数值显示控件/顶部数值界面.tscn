@@ -1,0 +1,112 @@
+[gd_scene load_steps=8 format=3 uid="uid://bfx0506qdvtrn"]
+
+[ext_resource type="Script" path="res://数值显示控件/顶部数值界面.gd" id="1_ac1km"]
+[ext_resource type="PackedScene" uid="uid://noii1uo1ur3g" path="res://数值显示控件/数值显示控件.tscn" id="1_tbd4h"]
+[ext_resource type="Texture2D" uid="uid://bvispm187dyoh" path="res://塔防/resource/测试/mp_frame_dizi.png" id="3_po6h6"]
+[ext_resource type="Texture2D" uid="uid://ylfmrtnktg1c" path="res://塔防/resource/测试/mp_frame_zhanglao.png" id="4_0mk5o"]
+[ext_resource type="Texture2D" uid="uid://bjkl1rffsuigg" path="res://塔防/resource/测试/icon_jz.png" id="5_sbmwj"]
+[ext_resource type="Texture2D" uid="uid://c31m1kppmshym" path="res://塔防/resource/测试/mp_frame_zongmen.png" id="6_h03op"]
+[ext_resource type="Texture2D" uid="uid://drungyx1tsoev" path="res://塔防/resource/测试/icon_bcs05.png" id="7_nxgip"]
+
+[node name="顶部数值界面" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -694.0
+offset_bottom = -549.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ac1km")
+
+[node name="体力控件" parent="." instance=ExtResource("1_tbd4h")]
+layout_mode = 1
+offset_left = 15.0
+offset_top = 14.0
+offset_right = 135.0
+offset_bottom = 64.0
+
+[node name="Panel" parent="体力控件" index="0"]
+self_modulate = Color(1, 1, 1, 0)
+
+[node name="MpFrameDizi" type="TextureRect" parent="体力控件/Panel" index="0"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -9.0
+offset_right = 159.0
+offset_bottom = 49.0
+texture = ExtResource("3_po6h6")
+expand_mode = 1
+
+[node name="TextureRect" parent="体力控件" index="1"]
+offset_left = -2.0
+offset_top = 2.0
+offset_right = 22.0
+offset_bottom = 39.0
+
+[node name="金币控件" parent="." instance=ExtResource("1_tbd4h")]
+layout_mode = 1
+offset_left = 156.0
+offset_top = 14.0
+offset_right = 276.0
+offset_bottom = 64.0
+
+[node name="Panel" parent="金币控件" index="0"]
+self_modulate = Color(1, 1, 1, 0)
+metadata/_edit_lock_ = true
+
+[node name="MpFrameDizi" type="TextureRect" parent="金币控件/Panel" index="0"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -9.0
+offset_right = 159.0
+offset_bottom = 49.0
+texture = ExtResource("6_h03op")
+expand_mode = 1
+
+[node name="Label" parent="金币控件/Panel" index="1"]
+text = "200"
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" parent="金币控件" index="1"]
+offset_left = -8.0
+offset_top = 1.0
+offset_right = 26.0
+offset_bottom = 35.0
+texture = ExtResource("5_sbmwj")
+
+[node name="钻石控件" parent="." instance=ExtResource("1_tbd4h")]
+layout_mode = 1
+offset_left = 300.0
+offset_top = 13.0
+offset_right = 420.0
+offset_bottom = 63.0
+
+[node name="Panel" parent="钻石控件" index="0"]
+self_modulate = Color(1, 1, 1, 0)
+metadata/_edit_lock_ = true
+
+[node name="MpFrameDizi" type="TextureRect" parent="钻石控件/Panel" index="0"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -9.0
+offset_right = 159.0
+offset_bottom = 49.0
+texture = ExtResource("4_0mk5o")
+expand_mode = 1
+
+[node name="Label" parent="钻石控件/Panel" index="1"]
+offset_left = 42.0
+text = "0"
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" parent="钻石控件" index="1"]
+offset_left = -5.0
+offset_top = 5.0
+offset_right = 27.0
+offset_bottom = 37.0
+texture = ExtResource("7_nxgip")
+
+[editable path="体力控件"]
+[editable path="金币控件"]
+[editable path="钻石控件"]

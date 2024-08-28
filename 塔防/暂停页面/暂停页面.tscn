@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxp5pbq5tb53l"]
+
+[ext_resource type="Script" path="res://塔防/暂停页面/暂停页面.gd" id="1_w4orl"]
+[ext_resource type="LabelSettings" uid="uid://jfcdltjkfkj4" path="res://resource/label_set_30.tres" id="1_wkjso"]
+[ext_resource type="PackedScene" uid="uid://xutj6oxx4m2i" path="res://addons/template/超级按钮/预设/上下图文.tscn" id="2_pqar3"]
+[ext_resource type="PackedScene" uid="uid://b2olsrhumav2c" path="res://addons/template/超级按钮/预设/纯文字.tscn" id="3_31fs6"]
+[ext_resource type="PackedScene" uid="uid://hapm4shmypdl" path="res://addons/template/超级按钮/预设/纯图.tscn" id="4_tjr7j"]
+
+[node name="暂停页面" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w4orl")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.631373)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 248.0
+grow_horizontal = 2
+text = "暂停"
+label_settings = ExtResource("1_wkjso")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -155.0
+offset_bottom = -66.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Button退出" parent="HBoxContainer" instance=ExtResource("2_pqar3")]
+layout_mode = 2
+
+[node name="Button游戏继续" parent="HBoxContainer" instance=ExtResource("3_31fs6")]
+layout_mode = 2
+
+[node name="Button设置" parent="HBoxContainer" instance=ExtResource("4_tjr7j")]
+layout_mode = 2
+
+[connection signal="点击动画结束" from="HBoxContainer/Button退出" to="." method="_on_button退出_点击动画结束"]
+[connection signal="点击动画结束" from="HBoxContainer/Button游戏继续" to="." method="_on_button游戏继续_点击动画结束"]
+[connection signal="点击动画结束" from="HBoxContainer/Button设置" to="." method="_on_button设置_点击动画结束"]

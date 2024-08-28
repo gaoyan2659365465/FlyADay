@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://bd7cjxknp5l6e"]
+
+[ext_resource type="Script" path="res://addons/template/超级按钮/超级按钮.gd" id="1_dkq3e"]
+[ext_resource type="Script" path="res://addons/template/超级按钮/点击动画配置.gd" id="2_wp4vk"]
+[ext_resource type="Texture2D" uid="uid://bdgjql374ish4" path="res://addons/template/超级按钮/resource/白按钮.png" id="3_xw522"]
+[ext_resource type="Texture2D" uid="uid://c3hvvqfcxffwd" path="res://addons/template/超级按钮/resource/摄像头图标.png" id="4_sbi4v"]
+[ext_resource type="LabelSettings" uid="uid://bksf1wryv2rcj" path="res://resource/label_set_25.tres" id="5_i8jku"]
+
+[sub_resource type="Resource" id="Resource_6is6r"]
+resource_local_to_scene = true
+script = ExtResource("2_wp4vk")
+
+[node name="左右图文" type="TextureButton"]
+offset_right = 178.0
+offset_bottom = 83.0
+script = ExtResource("1_dkq3e")
+"点击效果" = SubResource("Resource_6is6r")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+modulate = Color(1, 0.880697, 0.205695, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_xw522")
+patch_margin_left = 26
+patch_margin_top = 23
+patch_margin_right = 19
+patch_margin_bottom = 31
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 7
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("4_sbi4v")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "免费复活"
+label_settings = ExtResource("5_i8jku")
+horizontal_alignment = 1
+vertical_alignment = 1

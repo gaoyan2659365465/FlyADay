@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://xrqahp50eduj"]
+
+[ext_resource type="Texture2D" uid="uid://cs51oceb7nlxj" path="res://塔防/技能系统/毒攻击/resource/烟雾.png" id="1_gbcnc"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_65i68"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 3
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w5lmq"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 5.48
+angle_min = -720.0
+angle_max = 720.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.8
+color = Color(0.407843, 0.0627451, 0.470588, 0.631373)
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[node name="中毒特效" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_65i68")
+position = Vector2(0, -21)
+amount = 2
+process_material = SubResource("ParticleProcessMaterial_w5lmq")
+texture = ExtResource("1_gbcnc")
+local_coords = true

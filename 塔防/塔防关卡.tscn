@@ -1,0 +1,173 @@
+[gd_scene load_steps=18 format=4 uid="uid://b8gyqbhl7rbau"]
+
+[ext_resource type="Script" path="res://塔防/塔防关卡.gd" id="1_ejgnd"]
+[ext_resource type="Texture2D" uid="uid://bpnp6cxnwyx7b" path="res://塔防/resource/塔防地图.png" id="1_jrlpb"]
+[ext_resource type="LabelSettings" uid="uid://jfcdltjkfkj4" path="res://resource/label_set_30.tres" id="2_76bco"]
+[ext_resource type="PackedScene" uid="uid://hapm4shmypdl" path="res://addons/template/超级按钮/预设/纯图.tscn" id="3_n3670"]
+[ext_resource type="Script" path="res://addons/template/超级按钮/点击动画配置.gd" id="4_aos7p"]
+[ext_resource type="Texture2D" uid="uid://3gigcg7s7lf8" path="res://塔防/resource/暂停图标.png" id="6_sn1gt"]
+[ext_resource type="PackedScene" uid="uid://noii1uo1ur3g" path="res://数值显示控件/数值显示控件.tscn" id="7_sx4o8"]
+[ext_resource type="Texture2D" uid="uid://djyst7acs4xlf" path="res://塔防/resource/银币.png" id="8_qw1ul"]
+[ext_resource type="PackedScene" uid="uid://c33oxtk1f4t22" path="res://塔防/经验控件/经验控件.tscn" id="9_tea28"]
+[ext_resource type="PackedScene" uid="uid://cuniysv42bxr4" path="res://塔防/自定义背包/自定义背包.tscn" id="10_vi007"]
+[ext_resource type="PackedScene" uid="uid://rjm0juu7nwvn" path="res://塔防/生命红心/生命红心.tscn" id="12_npjsn"]
+
+[sub_resource type="Resource" id="Resource_c1uei"]
+resource_local_to_scene = true
+script = ExtResource("4_aos7p")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xc664"]
+bg_color = Color(0.460938, 0.460938, 0.460938, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_uam5p"]
+font_size = 20
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ta024"]
+texture = ExtResource("1_jrlpb")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_05k8h"]
+tile_size = Vector2i(64, 64)
+sources/1 = SubResource("TileSetAtlasSource_ta024")
+
+[sub_resource type="Curve2D" id="Curve2D_3sfse"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 486, 101, 0, 0, 0, 0, 359, 101, 0, 0, 0, 0, 356, 541, 0, 0, 0, 0, 800, 543, 0, 0, 0, 0, 799, 100, 0, 0, 0, 0, 672, 100)
+}
+point_count = 6
+
+[node name="塔防关卡" type="Node2D"]
+script = ExtResource("1_ejgnd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label波" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -63.0
+offset_top = 75.0
+offset_right = 63.0
+offset_bottom = 115.0
+grow_horizontal = 2
+text = "第1/20波"
+label_settings = ExtResource("2_76bco")
+horizontal_alignment = 1
+
+[node name="Label章" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -63.0
+offset_top = 35.0
+offset_right = 63.0
+offset_bottom = 75.0
+grow_horizontal = 2
+text = "第一章"
+label_settings = ExtResource("2_76bco")
+horizontal_alignment = 1
+
+[node name="Button暂停" parent="CanvasLayer" instance=ExtResource("3_n3670")]
+custom_minimum_size = Vector2(66, 66)
+offset_left = 22.0
+offset_top = 26.0
+offset_right = 88.0
+offset_bottom = 92.0
+"点击效果" = SubResource("Resource_c1uei")
+
+[node name="NinePatchRect" parent="CanvasLayer/Button暂停" index="0"]
+modulate = Color(0.586864, 0.5997, 0.625, 1)
+
+[node name="MarginContainer" parent="CanvasLayer/Button暂停" index="1"]
+offset_top = 3.0
+
+[node name="TextureRect" parent="CanvasLayer/Button暂停/MarginContainer/VBoxContainer" index="0"]
+custom_minimum_size = Vector2(40, 40)
+texture = ExtResource("6_sn1gt")
+
+[node name="银币" parent="CanvasLayer" instance=ExtResource("7_sx4o8")]
+offset_left = 987.0
+offset_top = 42.0
+offset_right = 1107.0
+offset_bottom = 92.0
+
+[node name="Panel" parent="CanvasLayer/银币" index="0"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_xc664")
+metadata/_edit_lock_ = true
+
+[node name="Label" parent="CanvasLayer/银币/Panel" index="0"]
+offset_left = 37.0
+offset_top = -7.0
+offset_bottom = 2.0
+text = "0"
+label_settings = SubResource("LabelSettings_uam5p")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" parent="CanvasLayer/银币" index="1"]
+offset_left = -13.0
+offset_top = -3.0
+offset_right = 29.0
+offset_bottom = 38.0
+texture = ExtResource("8_qw1ul")
+metadata/_edit_lock_ = true
+
+[node name="经验控件" parent="CanvasLayer" instance=ExtResource("9_tea28")]
+offset_left = 418.0
+offset_top = 553.0
+offset_right = -325.0
+offset_bottom = -9.0
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAJAAQAAQABAAAAAAAJAAUAAQABAAAAAAAJAAYAAQABAAAAAAAJAAcAAQABAAAAAAAJAAgAAQABAAAAAAAJAAkAAQABAAAAAAAQAAQAAQABAAAAAAAQAAUAAQABAAAAAAAQAAYAAQABAAAAAAAQAAcAAQABAAAAAAAQAAgAAQABAAAAAAAQAAkAAQABAAAAAAAJAAoAAQABAAAAAAAJAAsAAQABAAAAAAAKAAsAAQABAAAAAAALAAsAAQABAAAAAAAMAAsAAQABAAAAAAANAAsAAQABAAAAAAAOAAsAAQABAAAAAAAPAAsAAQABAAAAAAAQAAoAAQABAAAAAAAQAAsAAQABAAAAAAAKAAQAAQABAAAAAAALAAQAAQABAAAAAAAOAAQAAQABAAAAAAAPAAQAAQABAAAAAAA=")
+tile_set = SubResource("TileSet_05k8h")
+metadata/_edit_lock_ = true
+
+[node name="生命红心" parent="." instance=ExtResource("12_npjsn")]
+position = Vector2(883, 283)
+
+[node name="自定义背包" parent="." instance=ExtResource("10_vi007")]
+offset_left = 684.0
+offset_top = 325.0
+offset_right = 996.0
+offset_bottom = 876.0
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(254, 190)
+curve = SubResource("Curve2D_3sfse")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(846, 500)
+zoom = Vector2(0.72, 0.72)
+
+[connection signal="点击动画结束" from="CanvasLayer/Button暂停" to="." method="_on_button暂停_点击动画结束"]
+[connection signal="死亡游戏结束" from="生命红心" to="." method="_on_生命红心_死亡游戏结束"]
+[connection signal="刷新道具" from="自定义背包" to="." method="_on_自定义背包_刷新道具"]
+[connection signal="开始战斗" from="自定义背包" to="." method="_on_自定义背包_开始战斗"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="CanvasLayer/Button暂停"]
+[editable path="CanvasLayer/银币"]

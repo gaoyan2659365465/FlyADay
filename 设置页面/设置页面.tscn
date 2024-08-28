@@ -1,0 +1,100 @@
+[gd_scene load_steps=8 format=3 uid="uid://fitwq17drlky"]
+
+[ext_resource type="Script" path="res://设置页面/设置页面.gd" id="1_ae6v6"]
+[ext_resource type="Texture2D" uid="uid://dc8skg0w5yc7m" path="res://设置页面/resource/进度滑块.png" id="2_60cun"]
+[ext_resource type="Texture2D" uid="uid://g7ww7jrmi85i" path="res://resource/进度条背景.png" id="2_xtndg"]
+[ext_resource type="Texture2D" uid="uid://d0arqvikqukcc" path="res://resource/进度条内容.png" id="3_mfmet"]
+[ext_resource type="PackedScene" uid="uid://dnil13w6ruvmh" path="res://弹窗/弹窗.tscn" id="5_u368c"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ju0lt"]
+content_margin_left = 5.0
+content_margin_top = 15.0
+content_margin_right = 5.0
+content_margin_bottom = 15.0
+texture = ExtResource("2_xtndg")
+texture_margin_left = 172.0
+texture_margin_right = 171.0
+axis_stretch_horizontal = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1yh52"]
+content_margin_left = 20.0
+content_margin_right = 20.0
+texture = ExtResource("3_mfmet")
+axis_stretch_horizontal = 1
+
+[node name="设置页面" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_ae6v6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.384314)
+
+[node name="弹窗" parent="." instance=ExtResource("5_u368c")]
+layout_mode = 1
+offset_left = 398.0
+offset_top = 126.0
+offset_right = -365.0
+offset_bottom = -103.0
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 430.0
+offset_top = 257.0
+offset_right = 520.0
+offset_bottom = 366.0
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "音乐："
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "音效："
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 516.0
+offset_top = 248.0
+offset_right = 754.0
+offset_bottom = 372.0
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/grabber_offset = 3
+theme_override_icons/grabber = ExtResource("2_60cun")
+theme_override_icons/grabber_highlight = ExtResource("2_60cun")
+theme_override_styles/slider = SubResource("StyleBoxTexture_ju0lt")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_1yh52")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_1yh52")
+value = 19.0
+scrollable = false
+
+[node name="HSlider2" type="HSlider" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/grabber_offset = 3
+theme_override_icons/grabber = ExtResource("2_60cun")
+theme_override_icons/grabber_highlight = ExtResource("2_60cun")
+theme_override_styles/slider = SubResource("StyleBoxTexture_ju0lt")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_1yh52")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_1yh52")
+value = 19.0
+scrollable = false
+
+[connection signal="关闭弹窗" from="弹窗" to="." method="_on_弹窗_关闭弹窗"]

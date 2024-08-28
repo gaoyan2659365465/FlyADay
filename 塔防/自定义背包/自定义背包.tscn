@@ -1,0 +1,257 @@
+[gd_scene load_steps=18 format=3 uid="uid://cuniysv42bxr4"]
+
+[ext_resource type="Script" path="res://塔防/自定义背包/自定义背包.gd" id="1_pga1d"]
+[ext_resource type="PackedScene" uid="uid://b576670a4q1s0" path="res://塔防/自定义背包/背包格子组.tscn" id="2_fj2ex"]
+[ext_resource type="Script" path="res://拖拽滚动框/reorderable_container.gd" id="6_5t73n"]
+[ext_resource type="Script" path="res://addons/template/超级按钮/点击动画配置.gd" id="6_t1if1"]
+[ext_resource type="Script" path="res://塔防/自定义背包/物品生成/物品生成器.gd" id="7_af3qc"]
+[ext_resource type="PackedScene" uid="uid://bd7cjxknp5l6e" path="res://addons/template/超级按钮/预设/左右图文.tscn" id="8_7r25q"]
+[ext_resource type="Texture2D" uid="uid://djyst7acs4xlf" path="res://塔防/resource/银币.png" id="9_awhiw"]
+[ext_resource type="LabelSettings" uid="uid://bksf1wryv2rcj" path="res://resource/label_set_25.tres" id="9_hv4qb"]
+[ext_resource type="PackedScene" uid="uid://b2olsrhumav2c" path="res://addons/template/超级按钮/预设/纯文字.tscn" id="9_lnfmx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u34wp"]
+bg_color = Color(0.469579, 0.0132695, 0.765625, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Resource" id="Resource_bqv3n"]
+script = ExtResource("6_t1if1")
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ew07"]
+font_size = 15
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_6atpl"]
+script = ExtResource("6_t1if1")
+
+[sub_resource type="LabelSettings" id="LabelSettings_jnd0q"]
+font_size = 15
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_esvpw"]
+script = ExtResource("6_t1if1")
+
+[sub_resource type="Resource" id="Resource_7ha4f"]
+resource_local_to_scene = true
+script = ExtResource("6_t1if1")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bsp6l"]
+bg_color = Color(0, 0, 0, 0.733333)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="自定义背包" type="Control"]
+custom_minimum_size = Vector2(312, 551)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -840.0
+offset_bottom = -97.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pga1d")
+
+[node name="物品生成器" type="Node" parent="." node_paths=PackedStringArray("物品栏", "背包")]
+script = ExtResource("7_af3qc")
+"物品栏" = NodePath("../ReorderableContainer")
+"背包" = NodePath("..")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -1005.0
+offset_top = -718.0
+offset_right = 1396.0
+offset_bottom = 1177.0
+color = Color(0, 0, 0, 1)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+offset_right = 308.0
+offset_bottom = 429.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_u34wp")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 5
+
+[node name="背包格子组" parent="." instance=ExtResource("2_fj2ex")]
+custom_minimum_size = Vector2(312, 551)
+layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 322.0
+offset_bottom = 561.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="ReorderableContainer" type="Container" parent="."]
+process_mode = 1
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 0
+offset_left = -477.0
+offset_top = 122.0
+offset_right = -146.0
+offset_bottom = 237.0
+script = ExtResource("6_5t73n")
+hold_duration = 0.1
+
+[node name="按钮栏" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -17.0
+offset_top = 463.0
+offset_right = 324.0
+offset_bottom = 543.0
+
+[node name="Button广告刷新" parent="按钮栏" instance=ExtResource("8_7r25q")]
+custom_minimum_size = Vector2(111, 80)
+layout_mode = 2
+"点击效果" = SubResource("Resource_bqv3n")
+
+[node name="NinePatchRect" parent="按钮栏/Button广告刷新" index="0"]
+modulate = Color(0.0958402, 0.812009, 1, 1)
+
+[node name="MarginContainer" parent="按钮栏/Button广告刷新" index="1"]
+offset_bottom = -14.0
+
+[node name="TextureRect" parent="按钮栏/Button广告刷新/MarginContainer/HBoxContainer" index="0"]
+custom_minimum_size = Vector2(30, 30)
+
+[node name="Label" parent="按钮栏/Button广告刷新/MarginContainer/HBoxContainer" index="1"]
+text = "刷新"
+
+[node name="Label" type="Label" parent="按钮栏/Button广告刷新"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "必出2级道具"
+label_settings = SubResource("LabelSettings_1ew07")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Button刷新" parent="按钮栏" instance=ExtResource("8_7r25q")]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+"点击效果" = SubResource("Resource_6atpl")
+
+[node name="NinePatchRect" parent="按钮栏/Button刷新" index="0"]
+modulate = Color(0.354442, 1, 0.311701, 1)
+
+[node name="MarginContainer" parent="按钮栏/Button刷新" index="1"]
+offset_top = 33.0
+
+[node name="TextureRect" parent="按钮栏/Button刷新/MarginContainer/HBoxContainer" index="0"]
+custom_minimum_size = Vector2(20, 20)
+texture = ExtResource("9_awhiw")
+
+[node name="Label" parent="按钮栏/Button刷新/MarginContainer/HBoxContainer" index="1"]
+text = "15"
+label_settings = SubResource("LabelSettings_jnd0q")
+
+[node name="Label" type="Label" parent="按钮栏/Button刷新"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "刷新"
+label_settings = ExtResource("9_hv4qb")
+horizontal_alignment = 1
+
+[node name="Button开战" parent="按钮栏" instance=ExtResource("9_lnfmx")]
+custom_minimum_size = Vector2(117.665, 70)
+layout_mode = 2
+"点击效果" = SubResource("Resource_esvpw")
+
+[node name="NinePatchRect" parent="按钮栏/Button开战" index="0"]
+modulate = Color(0.92549, 0.627451, 0, 1)
+
+[node name="Label" parent="按钮栏/Button开战/MarginContainer" index="0"]
+text = "开战"
+
+[node name="Button确定" parent="." instance=ExtResource("9_lnfmx")]
+visible = false
+custom_minimum_size = Vector2(111, 80)
+layout_mode = 0
+offset_left = 103.0
+offset_top = 462.0
+offset_right = 214.0
+offset_bottom = 542.0
+"点击效果" = SubResource("Resource_7ha4f")
+
+[node name="NinePatchRect" parent="Button确定" index="0"]
+modulate = Color(0.921569, 0.623529, 0, 1)
+
+[node name="Label" parent="Button确定/MarginContainer" index="0"]
+text = "确定"
+
+[node name="文字提示" type="Panel" parent="."]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = 49.0
+offset_top = 39.0
+offset_right = 260.0
+offset_bottom = 79.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bsp6l")
+
+[node name="Label" type="Label" parent="文字提示"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "将格子放好后确认"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="sort_children" from="ReorderableContainer" to="ReorderableContainer" method="_on_sort_children"]
+[connection signal="点击动画结束" from="按钮栏/Button刷新" to="." method="_on_button刷新_点击动画结束"]
+[connection signal="点击动画结束" from="按钮栏/Button开战" to="." method="_on_button开战_点击动画结束"]
+[connection signal="点击动画结束" from="Button确定" to="." method="_on_button确定_点击动画结束"]
+
+[editable path="按钮栏/Button广告刷新"]
+[editable path="按钮栏/Button刷新"]
+[editable path="按钮栏/Button开战"]
+[editable path="Button确定"]

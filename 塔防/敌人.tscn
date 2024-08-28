@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://cxfk7bjamahbx"]
+
+[ext_resource type="Script" path="res://塔防/敌人.gd" id="1_lo8wh"]
+[ext_resource type="Script" path="res://塔防/技能系统/角色属性.gd" id="2_j5p8q"]
+[ext_resource type="Texture2D" uid="uid://8ojfwdy11qf6" path="res://塔防/resource/史莱姆.png" id="2_x4t3a"]
+[ext_resource type="Texture2D" uid="uid://bt05md2l30bcr" path="res://塔防/resource/血条背景.png" id="3_lddi0"]
+[ext_resource type="Texture2D" uid="uid://djv77payr8s34" path="res://塔防/resource/血条内容.png" id="4_8p5pu"]
+[ext_resource type="Texture2D" uid="uid://c8ukxwt0ow622" path="res://塔防/resource/血条高光.png" id="5_a0an6"]
+[ext_resource type="Script" path="res://塔防/技能系统/AbilitySystem.gd" id="7_twksa"]
+[ext_resource type="Texture2D" uid="uid://tj7ewkhrfor6" path="res://塔防/resource/鬼魂.png" id="8_gf6up"]
+
+[sub_resource type="Resource" id="Resource_jisgr"]
+resource_local_to_scene = true
+script = ExtResource("2_j5p8q")
+"血量" = 100
+"最大血量" = 100
+"移动速度" = 200
+"减速效果" = 0.0
+"最终速度" = 200
+
+[node name="敌人" type="Node2D" groups=["敌人"]]
+script = ExtResource("1_lo8wh")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(1.90735e-06, -17.3334)
+scale = Vector2(0.0520143, 0.0545935)
+texture = ExtResource("2_x4t3a")
+offset = Vector2(0, -58.9948)
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="."]
+offset_left = -19.0
+offset_top = -54.0
+offset_right = 21.0
+offset_bottom = -44.0
+value = 100.0
+texture_under = ExtResource("3_lddi0")
+texture_progress = ExtResource("5_a0an6")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -19.0
+offset_top = -54.0
+offset_right = 21.0
+offset_bottom = -44.0
+value = 100.0
+texture_progress = ExtResource("4_8p5pu")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
+autostart = true
+
+[node name="AbilitySystem" type="Node" parent="."]
+script = ExtResource("7_twksa")
+attribute = SubResource("Resource_jisgr")
+tag = Array[String](["敌人"])
+
+[node name="鬼魂" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.431373)
+position = Vector2(0, -24)
+scale = Vector2(0.578125, 0.578125)
+texture = ExtResource("8_gf6up")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

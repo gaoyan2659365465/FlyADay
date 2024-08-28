@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://rjm0juu7nwvn"]
+
+[ext_resource type="Script" path="res://塔防/生命红心/生命红心.gd" id="1_ca6mo"]
+[ext_resource type="Texture2D" uid="uid://2wufww1mprir" path="res://塔防/resource/mp_img_jh.png" id="2_flyr2"]
+
+[node name="生命红心" type="Node2D"]
+script = ExtResource("1_ca6mo")
+
+[node name="红心" type="Sprite2D" parent="."]
+position = Vector2(0, -11)
+scale = Vector2(0.67, 0.67)
+texture = ExtResource("2_flyr2")
+
+[node name="红心2" type="Sprite2D" parent="."]
+position = Vector2(0, 10)
+scale = Vector2(0.67, 0.67)
+texture = ExtResource("2_flyr2")
+
+[node name="红心3" type="Sprite2D" parent="."]
+position = Vector2(0, 30)
+scale = Vector2(0.67, 0.67)
+texture = ExtResource("2_flyr2")

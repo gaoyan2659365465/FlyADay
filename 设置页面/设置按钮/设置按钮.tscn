@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://bk72bi2c3b0f0"]
+
+[ext_resource type="Script" path="res://设置页面/设置按钮/设置按钮.gd" id="1_m6gbl"]
+[ext_resource type="Texture2D" uid="uid://6tab12dmmb3l" path="res://设置页面/resource/设置图标.png" id="2_1enil"]
+[ext_resource type="Script" path="res://addons/template/超级按钮/超级按钮.gd" id="4_ddf1c"]
+[ext_resource type="Script" path="res://addons/template/超级按钮/点击动画配置.gd" id="5_oqbpr"]
+[ext_resource type="LabelSettings" uid="uid://bksf1wryv2rcj" path="res://resource/label_set_25.tres" id="5_ysmo1"]
+
+[sub_resource type="Resource" id="Resource_1oo7x"]
+script = ExtResource("5_oqbpr")
+
+[node name="设置按钮" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 84.0
+offset_bottom = 114.0
+script = ExtResource("1_m6gbl")
+
+[node name="Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("2_1enil")
+script = ExtResource("4_ddf1c")
+"点击效果" = SubResource("Resource_1oo7x")
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 68.0
+offset_right = 71.0
+offset_bottom = 103.0
+text = "设置"
+label_settings = ExtResource("5_ysmo1")
+
+[connection signal="点击动画结束" from="Button" to="." method="_on_button_点击动画结束"]

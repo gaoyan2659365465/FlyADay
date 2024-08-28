@@ -1,0 +1,117 @@
+[gd_scene load_steps=9 format=3 uid="uid://byxmum76n6y5v"]
+
+[ext_resource type="Script" path="res://获得物品页面/获得物品页面.gd" id="1_0ulbn"]
+[ext_resource type="Texture2D" uid="uid://div6avi2hivl8" path="res://塔防/resource/测试/cw_img_liangdi.png" id="2_fsfot"]
+[ext_resource type="Texture2D" uid="uid://drungyx1tsoev" path="res://塔防/resource/测试/icon_bcs05.png" id="3_wswsi"]
+[ext_resource type="PackedScene" uid="uid://dvm14ci3od5ui" path="res://获得物品页面/p_coloured_ribbon.tscn" id="4_7g0kt"]
+[ext_resource type="PackedScene" uid="uid://dwtw81bu7gx1v" path="res://获得物品页面/彩带特效.tscn" id="5_gavuc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jwcxn"]
+font_size = 100
+font_color = Color(1, 0.920657, 0.0463628, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_56wih"]
+font_size = 27
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_b4ss6"]
+font_size = 25
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[node name="获得物品页面" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ulbn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.643137)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 218.0
+grow_horizontal = 2
+text = "获得物品"
+label_settings = SubResource("LabelSettings_jwcxn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -82.0
+offset_top = -128.0
+offset_right = 82.0
+offset_bottom = -71.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "点击继续"
+label_settings = SubResource("LabelSettings_56wih")
+horizontal_alignment = 1
+
+[node name="物品框" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_fsfot")
+
+[node name="钻石图标" type="TextureRect" parent="物品框"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 61.0
+offset_right = 147.0
+offset_bottom = 148.0
+texture = ExtResource("3_wswsi")
+expand_mode = 1
+
+[node name="Label3" type="Label" parent="物品框"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "x100"
+label_settings = SubResource("LabelSettings_b4ss6")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="PColouredRibbon" parent="." instance=ExtResource("4_7g0kt")]
+position = Vector2(276, 405)
+
+[node name="PColouredRibbon2" parent="." instance=ExtResource("4_7g0kt")]
+position = Vector2(876, 405)
+
+[node name="彩带特效" parent="." instance=ExtResource("5_gavuc")]
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

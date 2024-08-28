@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=3 uid="uid://xlkyej1h0w32"]
+
+[ext_resource type="Script" path="res://签到页面/签到按钮/签到按钮.gd" id="1_r6ul2"]
+[ext_resource type="Texture2D" uid="uid://b0x11m358uo1a" path="res://签到页面/resource/签到图标.png" id="3_pxjgt"]
+[ext_resource type="Script" path="res://addons/template/超级按钮/超级按钮.gd" id="4_28sl4"]
+[ext_resource type="Script" path="res://addons/template/超级按钮/点击动画配置.gd" id="5_wmauc"]
+[ext_resource type="Script" path="res://addons/template/超级按钮/摇晃动画配置.gd" id="6_mvsjk"]
+[ext_resource type="Texture2D" uid="uid://cgbfis5whidnf" path="res://addons/template/超级按钮/resource/红色感叹号.png" id="7_6cd7l"]
+[ext_resource type="LabelSettings" uid="uid://bksf1wryv2rcj" path="res://resource/label_set_25.tres" id="8_oc25g"]
+
+[sub_resource type="Resource" id="Resource_6njbe"]
+script = ExtResource("5_wmauc")
+
+[sub_resource type="Resource" id="Resource_6og46"]
+script = ExtResource("6_mvsjk")
+time = 1
+
+[node name="签到按钮" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r6ul2")
+
+[node name="Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("3_pxjgt")
+script = ExtResource("4_28sl4")
+"点击效果" = SubResource("Resource_6njbe")
+"默认效果" = SubResource("Resource_6og46")
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 75.0
+offset_right = 98.0
+offset_bottom = 110.0
+text = "每日签到"
+label_settings = ExtResource("8_oc25g")
+
+[node name="红色感叹号" type="TextureRect" parent="Button"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 5.0
+offset_right = 69.0
+offset_bottom = 23.0
+texture = ExtResource("7_6cd7l")
+expand_mode = 1
+
+[connection signal="点击动画结束" from="Button" to="." method="_on_button_点击动画结束"]
